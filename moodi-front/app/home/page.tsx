@@ -1,4 +1,5 @@
 import ImageBanner from "../components/ImageBanner";
+import SlideCities from "../components/SildeCities";
 import SlideVideos from "../components/SlideVideos";
 
 export default function Home() {
@@ -34,6 +35,8 @@ export default function Home() {
               buttonTitle="view All"
               sectionTitle="Popular smoking tools & devices"
             />
+            <SlideCities sectionTitle="Browse products by state" />
+
             <SlideVideos
               buttonTitle="view All"
               sectionTitle="Popular strains"

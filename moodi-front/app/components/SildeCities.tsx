@@ -13,11 +13,11 @@ type Video = {
 
 type SlideVideosProps = {
   sectionTitle: string;
-  buttonTitle: string;
+  buttonTitle?: string;
   video?: Video;
 };
 
-export default function SlideVideos({
+export default function SlideCities({
   sectionTitle,
   buttonTitle,
   video,
@@ -28,16 +28,9 @@ export default function SlideVideos({
   return (
     <div className="px-2 flex flex-col">
       <div className="flex items-center justify-between">
-        <h2 className="py-2 section-heading text-base md:text-lg w-[60%]">
+        <h2 className="py-2 section-heading text-base md:text-lg">
           {sectionTitle}
         </h2>
-        <div className="flex justify-end sm:pb-2">
-          <Link href="/#" className="flex justify-end sm:pb-2">
-            <button className="rounded-2xl bg-[#dee021] px-5 py-1">
-              <span className="text-sm lg:text-base">{buttonTitle}</span>
-            </button>
-          </Link>
-        </div>
       </div>
       <div className="relative overflow-hidden">
         <div className="flex justify-between absolute top left w-full h-full">
