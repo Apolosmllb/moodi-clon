@@ -1,5 +1,5 @@
+import Image from "next/image";
 import ImageBanner from "../components/ImageBanner";
-import SlideVideos from "../components/SlideVideos";
 
 export default function Home() {
   return (
@@ -19,14 +19,6 @@ export default function Home() {
             height={200}
             style="w-full h-auto"
           />
-        </div>
-        <div className="flex flex-col py-1 gap-6 sm:px-8">
-          <div className="flex flex-col mx-1 gap-6 sm:px-4">
-            <SlideVideos
-              buttonTitle="view All"
-              sectionTitle="Trending Reviews"
-            />
-          </div>
         </div>
       </section>
     </main>
