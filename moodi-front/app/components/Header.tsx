@@ -32,13 +32,13 @@ const tagItems = [
 
 export default function Header() {
   const scrolled = useScroll();
-  let navbarClasses = ["bg-white", "px-4", "py-2", "sticky", "top-0", "z-50"];
+  let navbarClasses = "bg-white px-4 py-2 sticky top-0 z-50";
   if (scrolled) {
-    navbarClasses.push("shadow-md");
+    navbarClasses += " shadow-md";
   }
 
   return (
-    <header className={navbarClasses.join(" ")}>
+    <header className={navbarClasses}>
       <div className="relative z-30 max-w-[1320px] mx-auto flex justify-between h-16 px-0 sm:px-6">
         <Link
           href="/home"
