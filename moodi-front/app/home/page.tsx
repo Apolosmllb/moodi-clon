@@ -26,6 +26,18 @@ export default function Home() {
               buttonTitle="view All"
               sectionTitle="Trending Reviews"
             />
+            <SlideVideos
+              buttonTitle="view All"
+              sectionTitle="Concentrates 101"
+            />
+            <SlideVideos
+              buttonTitle="view All"
+              sectionTitle="Popular smoking tools & devices"
+            />
+            <SlideVideos
+              buttonTitle="view All"
+              sectionTitle="Popular strains"
+            />
           </div>
         </div>
       </section>

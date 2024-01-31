@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Tag from "./Tag";
 import Link from "next/link";
+import useScroll from "../hooks/useScroll";
 
 const tagItems = [
   {
@@ -28,8 +31,14 @@ const tagItems = [
 ];
 
 export default function Header() {
+  const scrolled = useScroll();
+  let navbarClasses = ["bg-white", "px-4", "py-2", "sticky", "top-0", "z-50"];
+  if (scrolled) {
+    navbarClasses.push("shadow-md");
+  }
+
   return (
-    <header className="bg-white px-4 py-2 sticky top-0 z-50">
+    <header className={navbarClasses.join(" ")}>
       <div className="relative z-30 max-w-[1320px] mx-auto flex justify-between h-16 px-0 sm:px-6">
         <Link
           href="/home"
