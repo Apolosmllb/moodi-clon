@@ -32,10 +32,9 @@ const tagItems = [
 
 export default function Header() {
   const scrolled = useScroll();
-  let navbarClasses = "bg-white px-4 py-2 sticky top-0 z-50";
-  if (scrolled) {
-    navbarClasses += " shadow-md";
-  }
+  let navbarClasses = `sticky top-0 left-0 z-20 flex justify-center items-center bg-white px-4 py-2 z-50${
+    scrolled ? " shadow-md" : ""
+  }`;
 
   return (
     <header className={navbarClasses}>
