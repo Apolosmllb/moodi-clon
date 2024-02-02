@@ -1,26 +1,16 @@
 "use client";
 import Link from "next/link";
-import { videos } from "../mock/videos";
+import videos from "../mock/videos.json";
 import { useCarousel } from "../hooks/useCarousel";
-
-type Video = {
-  id: string;
-  title: string;
-  description: string;
-  url: string;
-  thumbnail: string;
-};
 
 type SlideVideosProps = {
   sectionTitle: string;
   buttonTitle?: string;
-  video?: Video;
 };
 
 export default function SlideCities({
   sectionTitle,
   buttonTitle,
-  video,
 }: SlideVideosProps) {
   const { currentIndex, carousel, movePrev, moveNext, isDisabled } =
     useCarousel();
@@ -55,10 +45,10 @@ export default function SlideCities({
           ref={carousel}
           className="carousel-container relative flex gap-1 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x z-0"
         >
-          {videos.map((video) => {
+          {videos.res.map((video) => {
             return (
               <div
-                key={video.title}
+                key={crypto.randomUUID()}
                 className="carousel-item text-center relative w-64 h-64 snap-start animate-pulse"
               >
                 <div className="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0 bg-gray-400 rounded">
