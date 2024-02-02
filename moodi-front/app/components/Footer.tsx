@@ -14,7 +14,13 @@ export default function Footer() {
               ready.
             </p>
             <div className="pt-5">
-              <div className="bg-blue-500 w-full h-[240px]"></div>
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSeb6zidskwj4cVnVFaNEf8SIAnuviuqlmgbndGFfR9PL3NXbg/viewform?embedded=true"
+                width="487"
+                height="332"
+              >
+                Cargando…
+              </iframe>
             </div>
           </div>
           <div className="col-span-12 md:col-span-1"></div>
