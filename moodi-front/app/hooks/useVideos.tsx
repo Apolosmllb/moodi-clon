@@ -4,7 +4,6 @@ import { getVideo } from "../services/videosService";
 import { Video } from "../models/video";
 
 export const useVideo = (title: string) => {
-
   const [video, setVideo] = useState<Video | null>(null);
 
   useEffect(() => {
@@ -14,7 +13,7 @@ export const useVideo = (title: string) => {
     };
 
     fetchVideo();
-  }, []);
+  }, [title]);
 
   return { video };
 };

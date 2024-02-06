@@ -5,19 +5,14 @@ import VideoAttributes from "./VideoAttributes";
 import { Video } from "../models/video";
 import PlayButton from "./PlayButton";
 
-const heightHash = {
-  xs: "305px",
-  sm: "305px",
-  md: "305px",
-  lg: "305px",
+type VideoCardProps = {
+  video: Video;
+  breakPoint?: string; // Añade esta línea
 };
+
 export default function VideoCard({
   video: { metaData, playbackId },
-  breakPoint,
-}: {
-  video: Video;
-  breakPoint: string;
-}) {
+}: VideoCardProps) {
   return (
     <div className="h-full relative  overflow-hidden  inline-block">
       <div className="relative max-h-[305px]">
@@ -29,17 +24,7 @@ export default function VideoCard({
               fetchPriority="high"
               width={230}
               height={305}
-              style={{
-                height: `${
-                  heightHash?.[breakPoint as "xs" | "sm" | "md" | "lg"]
-                }`,
-
-                // width: `${
-                //   widthHash?.[breakPoint as "xs" | "sm" | "md" | "lg"]
-                // }`,
-                width: "100%",
-              }}
-              className="block text-transparent object-cover rounded-2xl"
+              className="block h-[305px] text-transparent object-cover rounded-2xl"
             />
           </div>
           <Badge tag={metaData.tagVideo} />

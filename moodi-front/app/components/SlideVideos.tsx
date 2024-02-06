@@ -26,8 +26,9 @@ export default function SlideVideos({
     infinite: false,
     speed: 500,
     vertical: false,
-    slidesToShow: SLIDES_TO_SHOW[breakPoint as "xs" | "sm" | "md" | "lg"] ?? 5,
-    slidesToScroll: 5,
+    slidesToShow: SLIDES_TO_SHOW[breakPoint as "xs" | "sm" | "md" | "lg"] ?? 1,
+    slidesToScroll:
+      SLIDES_TO_SHOW[breakPoint as "xs" | "sm" | "md" | "lg"] ?? 5,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
@@ -38,7 +39,7 @@ export default function SlideVideos({
           {sectionTitle}
         </h2>
         <div className="flex justify-end sm:pb-2">
-          <Link href="/#" className="flex justify-end sm:pb-2">
+          <Link href="/#">
             <button className="rounded-2xl bg-[#dee021] px-5 py-1">
               <span className="text-sm lg:text-base">{buttonTitle}</span>
             </button>
@@ -48,13 +49,7 @@ export default function SlideVideos({
       <div className="pt-2">
         <Slider {...settings}>
           {videos.res.map((videoItem) => {
-            return (
-              <VideoCard
-                video={videoItem}
-                key={crypto.randomUUID()}
-                breakPoint={breakPoint}
-              />
-            );
+            return <VideoCard video={videoItem} key={crypto.randomUUID()} />;
           })}
         </Slider>
       </div>

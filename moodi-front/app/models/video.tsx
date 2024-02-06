@@ -2,6 +2,7 @@ export type Video = {
   playbackId: string;
   brand: string;
   category: string;
+  searchTitle: string;
   flavor: string;
   creator: string;
   description: string;

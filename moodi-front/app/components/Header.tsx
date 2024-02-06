@@ -4,6 +4,8 @@ import Image from "next/image";
 import Tag from "./Tag";
 import Link from "next/link";
 import useScroll from "../hooks/useScroll";
+import { useState } from "react";
+import { useHeaderClassName } from "../hooks/useHeaderClassName";
 
 const tagItems = [
   {
@@ -32,7 +34,17 @@ const tagItems = [
 
 export default function Header() {
   const scrolled = useScroll();
-  let navbarClasses = `sticky top-0 left-0 z-20 flex justify-center items-center bg-white px-4 py-2 z-50${
+  const [searchText, setSearchText] = useState("");
+  const styleHeaderClass = useHeaderClassName();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.value) return;
+    const regex = /^[a-zA-Z0-9\s]*$/;
+    if (!regex.test(e.target.value)) return;
+    setSearchText(e.target.value);
+  };
+
+  const navbarClasses = `bg-white px-4 py-2 sticky top-0 z-20${
     scrolled ? " shadow-md" : ""
   }`;
 
@@ -40,7 +52,7 @@ export default function Header() {
     <header className={navbarClasses}>
       <div className="relative z-30 max-w-[1320px] mx-auto flex justify-between h-16 px-0 sm:px-6">
         <Link
-          href="/home"
+          href={"/home"}
           aria-label="Back to homepage moodi day"
           className="flex items-center py-2 mr-2 z-30"
         >
@@ -66,16 +78,17 @@ export default function Header() {
                 type="search"
                 placeholder="Search for a product"
                 className="max-w-[300px] w-auto overflow-hidden text-base leading-6 outline-none pl-[30px] pr-[30px]"
-                value=""
-                readOnly
+                onChange={handleChange}
               />
               <button className="absolute left-0 h-full flex items-center justify-center">
-                <Image
-                  alt="reset search"
-                  width={14}
-                  height={14}
-                  src="assets/search.svg"
-                />
+                <Link href={`/search/${searchText}`}>
+                  <Image
+                    alt="search search"
+                    width={14}
+                    height={14}
+                    src="assets/search.svg"
+                  />
+                </Link>
               </button>
               <button className="absolute right-0 h-full flex items-center justify-center">
                 <Image
@@ -97,6 +110,10 @@ export default function Header() {
           </Link>
         </div>
       </div>
+
+      <div
+        className={`overflow-x-auto pb-4 container px-0 mx-auto items-center ${styleHeaderClass}`}
+      ></div>
     </header>
   );
 }

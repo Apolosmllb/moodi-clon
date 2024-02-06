@@ -4,16 +4,15 @@ import ImageBanner from "../components/ImageBanner";
 import SlideCities from "../components/SildeCities";
 import SlideVideos from "../components/SlideVideos";
 
-import { rudderInitialize } from "../services/rudderStack/rudderInitialize";
+//import { rudderInitialize } from "../services/rudderStack/rudderInitialize";
 
 export default function Home() {
-  useEffect(() => {
-    rudderInitialize();
-  }, []);
-
+  // useEffect(() => {
+  //   rudderInitialize();
+  // }, []);
 
   return (
-    <main className="container max-w-[1320px] mx-auto min-h-[30vh] sm:min-h-[45vh] md:min-h-[50vh] lg:min-h-[60vh] xl:min-h-[70vh] overflow-x-hidden px-3">
+    <main className="absolute container max-w-[1320px] mx-auto min-h-[30vh] sm:min-h-[45vh] md:min-h-[50vh] lg:min-h-[60vh] xl:min-h-[70vh] overflow-x-hidden px-3">
       <section className="mb-auto mt-auto">
         <div className="text-center">
           <h1 className="text-black mt-0 mb-[.5rem] font-extrabold leading-tight text-[1.5rem] sm:text-[2rem] lg-[3rem]  ">
